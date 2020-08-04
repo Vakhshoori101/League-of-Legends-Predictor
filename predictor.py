@@ -11,7 +11,7 @@ def predictor(num, model):
     API.get_live_data()
 
     # preprocess data
-    j = parse_json('../data.json')
+    j = parse_json('data.json')
     x, player_info = j.get_Info(num)
 
     new_client = client()
@@ -43,7 +43,7 @@ def checker():
     # if API.get_live_data():
     #     return False
 
-    with open('../data.json') as f:
+    with open('data.json') as f:
         data = json.load(f)
     game_mode = data['gameData']['gameMode']
     game_time = data['gameData']['gameTime']

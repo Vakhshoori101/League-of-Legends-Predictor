@@ -6,6 +6,6 @@ if __name__ == "__main__":
     python_path = input('Enter python interpreter path: ')
     current_directory = os.getcwd()
     my_cron = CronTab(user=username)
-    job = my_cron.new(command=f'cd {current_directory} && {python_path} main.py >> output.txt')
+    job = my_cron.new(command=f'cd {current_directory} && {python_path} main.py >> output.txt', comment="League-Bot")
     job.minute.every(5)
     my_cron.write()

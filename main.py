@@ -1,4 +1,4 @@
-from Classes.predictor import predictor, checker
+from predictor import predictor, checker
 import os
 import time
 
