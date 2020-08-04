@@ -18,8 +18,7 @@ class RiotAPI():
                 args[key] = value
         response = requests.get(
             base.format(region=self.region, url=api_url),
-            params=args
-        )
+            params=args)
         print(response.url)
         return response.json()
 
@@ -30,15 +29,7 @@ class RiotAPI():
     def get_live_data(self):
         try:
             data = requests.get("https://127.0.0.1:2999/liveclientdata/allgamedata", verify="riotgames.pem")
-            with open('data.json', 'w') as f:
+            with open('../data.json', 'w') as f:
                 json.dump(data, f)
         except Exception as x:
             return 'No live games.'
-        # data = requests.get("https://127.0.0.1:2999/liveclientdata/allgamedata", verify="riotgames.pem")
-        # with open('data.json', 'w') as f:
-        #     json.dump(data, f)
-
-
-
-# api = RiotAPI('RGAPI-34314b80-0fdc-42b1-b0f2-4507d55a6d2b')
-# r = api.get_summoner_by_name('R0ast Beaf')

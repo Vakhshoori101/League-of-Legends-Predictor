@@ -1,4 +1,4 @@
-from client import client
+from Classes.client import client
 
 # enter 10 to create model for 10 minute marker
 # enter 15 to create model for 15 minute marker
