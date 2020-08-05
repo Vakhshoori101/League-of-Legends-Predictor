@@ -19,7 +19,6 @@ class RiotAPI():
         response = requests.get(
             base.format(region=self.region, url=api_url),
             params=args)
-        print(response.url)
         return response.json()
 
     def get_summoner_by_name(self, name):
@@ -28,8 +27,8 @@ class RiotAPI():
 
     def get_live_data(self):
         try:
-            data = requests.get("https://127.0.0.1:2999/liveclientdata/allgamedata", verify="riotgames.pem")
-            with open('../data.json', 'w') as f:
-                json.dump(data, f)
-        except Exception as x:
+            data = requests.get("https://127.0.0.1:2999/liveclientdata/allgamedata", verify="Code/riotgames.pem")
+            with open('Code/data.json', 'w') as f:
+                json.dump(data.json(), f)
+        except:
             return 'No live games.'

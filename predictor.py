@@ -1,8 +1,7 @@
-from Classes.client import client
+from Code.client import client
 import json
-from Classes.parse_json import parse_json
-from Classes.RiotAPI import RiotAPI
-
+from Code.parse_json import parse_json
+from Code.RiotAPI import RiotAPI
 
 def predictor(num, model):
 
@@ -11,7 +10,7 @@ def predictor(num, model):
     API.get_live_data()
 
     # preprocess data
-    j = parse_json('data.json')
+    j = parse_json('Code/data.json')
     x, player_info = j.get_Info(num)
 
     new_client = client()
@@ -40,10 +39,10 @@ def checker():
     API = RiotAPI()
 
     # check if live game
-    # if API.get_live_data():
-    #     return False
+    if API.get_live_data():
+        return False
 
-    with open('data.json') as f:
+    with open('Code/data.json') as f:
         data = json.load(f)
     game_mode = data['gameData']['gameMode']
     game_time = data['gameData']['gameTime']
@@ -54,5 +53,9 @@ def checker():
 
     # calculate time to call API
     sleep_time = 600 - game_time
+
+    # check if markers to calculate probability have passed
+    if sleep_time < 0:
+        return False
 
     return sleep_time

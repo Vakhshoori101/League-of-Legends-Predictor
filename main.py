@@ -17,8 +17,7 @@ def main(model='NN'):
     prediction10 = predictor(10, model)
     print(prediction10)
 
-    time.sleep(10)
-    # time.sleep(300)
+    time.sleep(300)
     prediction15 = predictor(15, model)
     print(prediction15)
 

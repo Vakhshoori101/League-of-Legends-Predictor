@@ -89,9 +89,15 @@ class parse_json():
                        "ORDER": {"HeraldKill": 0, "DragonKill": 0, "FirstBlood":0, "TurretKilled":0}}
         for event in events:
             if event['EventName'] in team_events['CHAOS'].keys():
-                wanted_name =  'Recipient' if event['EventName'] == 'FirstBlood' else 'KillerName'
-                team_event = self.summonerName_to_championName[event[wanted_name]][1]
-                team_events[team_event][event['EventName']] += 1
+                if event['EventName'] == 'TurretKilled':
+                    if 'T1' in event['KillerName']:
+                        team_events['CHAOS']['TurretKilled'] += 1
+                    else:
+                        team_events['CHAOS']['TurretKilled'] += 1
+                else:
+                    wanted_name = 'Recipient' if event['EventName'] == 'FirstBlood' else 'KillerName'
+                    team_event = self.summonerName_to_championName[event[wanted_name]][1]
+                    team_events[team_event][event['EventName']] += 1
         return team_events
 
     def get_Info(self, t=10) -> (pd.DataFrame,{}):

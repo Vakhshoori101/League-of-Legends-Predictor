@@ -1,4 +1,4 @@
-from Classes.client import client
+from Code.client import client
 
 
 # dense_layers = [3,4]
