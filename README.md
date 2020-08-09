@@ -16,7 +16,7 @@ These instructions will allow you to run a bot on your locate machine where Leag
     
 https://github.com/Vakhshoori101/League-of-Legends-Predictor.git
     
-    * can download as zip file
+   * can download as zip file
     
 ## Deployment
 
