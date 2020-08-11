@@ -1,0 +1,6 @@
+python-crontab
+keras
+numpy
+pandas
+scikit-learn
+tensorflow
