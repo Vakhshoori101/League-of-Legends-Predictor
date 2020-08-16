@@ -3,10 +3,12 @@ import pandas as pd
 
 class parse_json():
 
-    def __init__(self, file_name:str):
-        self.file_name = file_name
-        with open(file_name) as f:
-            self.data = json.load(f)
+    def __init__(self, file_name=None, j=None):
+        if file_name:
+            with open(file_name) as f:
+                self.data = json.load(f)
+        else:
+            self.data = j
         self.summonerName_to_championName = {}
         for player in self.data['allPlayers']:
             self.summonerName_to_championName[player['summonerName']] = [player['championName'], player['team']]

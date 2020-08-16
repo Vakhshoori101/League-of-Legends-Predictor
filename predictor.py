@@ -3,11 +3,14 @@ import json
 from Code.parse_json import parse_json
 from Code.RiotAPI import RiotAPI
 
-def predictor(num, model):
-
+def get_data():
     # get live data
     API = RiotAPI()
     API.get_live_data()
+
+def predictor(num, model):
+
+    get_data()
 
     # preprocess data
     j = parse_json('Code/data.json')
