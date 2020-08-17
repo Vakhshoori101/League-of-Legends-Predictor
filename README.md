@@ -32,7 +32,7 @@ https://github.com/Vakhshoori101/League-of-Legends-Predictor.git
  
  2. Once a League of Legends match is started, the bot will wait for the ten and fifteen minute marker and create a text file called ```output.txt``` in the current directory containing the probabilty of winning the match.
  
- 3. To remove the bot, run this sinpper in the directory containing remove_cron.py
+ 3. To remove the bot, run this snippet in the directory containing remove_cron.py
  
  ```sudo python3 remove_cron.py```
  
