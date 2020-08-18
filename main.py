@@ -1,4 +1,4 @@
-from predictor import predictor, checker, get_data, web_data
+from predictor import predictor, checker, web_data
 import requests
 import os
 import time
