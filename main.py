@@ -1,5 +1,4 @@
-from predictor import predictor, checker, get_data
-import json
+from predictor import predictor, checker, get_data, web_data
 import requests
 import os
 import time
@@ -18,21 +17,14 @@ def main(model='NN', web_server=False):
 
     if web_server:
         url = 'http://localhost:8000'
-        get_data()
-        with open('Code/data.json') as f:
-            data = json.load(f)
-        data['num'] = 10
-        data['model'] = model
+
+        data = web_data(10, model)
         prediction10 = requests.post(url, json=data).text
         print(prediction10)
 
-        # time.sleep(300)
+        time.sleep(300)
 
-        get_data()
-        with open('Code/data.json') as f:
-            data = json.load(f)
-        data['num'] = 15
-        data['model'] = model
+        data = web_data(15, model)
         prediction15 = requests.post(url, json=data).text
         print(prediction15)
 
